@@ -13,7 +13,7 @@ const Main = () => {
             {['/star-wars/',`/star-wars/${navItems[0].route}/:heroId`].map(p=>
                 <Route key={p} path={p} element={<Home/>}></Route>
             )}
-            {[`/star-wars/${navItems[1].route}, `/star-wars/${navItems[1].route}/:heroId`].map(p =>
+            {[`/star-wars/${navItems[1].route}`, `/star-wars/${navItems[1].route}`].map(p =>
                 <Route key={p} path={p} element={<AboutMe/>}></Route>
             )}
             <Route path={`/star-wars/${navItems[2].route}/:heroId`} element={<StarWars/>}></Route>
