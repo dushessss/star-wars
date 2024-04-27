@@ -4,8 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-    <script type="module" crossorigin src="/star-wars/assets/index--iC-9Hh5.js"></script>
+    <title>StarWars</title>
+    <script type="text/javascript">
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+                  .slice(1)
+                  .split("&")
+                  .map(function (s) {
+                    return s.replace(/~and~/g, "&");
+                  })
+                  .join("?");
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
+    <script type="module" crossorigin src="/star-wars/assets/index-DjPj7kBP.js"></script>
     <link rel="stylesheet" crossorigin href="/star-wars/assets/index-CmemaDOJ.css">
   </head>
   <body>
