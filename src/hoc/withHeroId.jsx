@@ -11,7 +11,7 @@ export const withHeroId =(route) => (Component) => (props)=>{
 
     useEffect(()=>{
         if(!Object.keys(characters).includes(heroId)){
-            navigate(`/${route}/${defaultHero}`);
+            navigate(`/star-wars/${route}/${defaultHero}`);
         }else {
             changeMainHero(heroId);
         }
