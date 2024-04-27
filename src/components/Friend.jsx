@@ -13,7 +13,7 @@ const Friend = ({friend,pos}) => {
         styles = "bottom-right col-4 p-1";
     }
     return (
-        <img onClick={()=> navigate(`https://dushessss.github.io/${navItems[0].route}/${friend}`)}
+        <img onClick={()=> navigate(`${navItems[0].route}/${friend}`)}
              className={styles} src={characters[friend].img} alt="friend"/>
     );
 };
