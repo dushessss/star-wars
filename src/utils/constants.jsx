@@ -3,16 +3,16 @@ import {characters} from "./characters.jsx";
 
 export const navItems = [{
     title: "Home",
-    route: "home"
+    route: "/star-wars/home"
 }, {
     title: "About Me",
-    route: "aboutMe"
+    route: "/star-wars/aboutMe"
 }, {
     title: "Star Wars",
-    route: "starWars"
+    route: "/star-wars/starWars"
 }, {
     title: "Contact",
-    route: "contact"
+    route: "/star-wars/contact"
 }];
 
 export const defaultHero = Object.keys(characters)[0];

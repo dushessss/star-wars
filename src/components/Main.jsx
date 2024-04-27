@@ -10,14 +10,14 @@ import ErrorPage from "./ErrorPage.jsx";
 const Main = () => {
     return (
         <Routes>
-            {['/star-wars/',`/star-wars/${navItems[0].route}/:heroId`].map(p=>
+            {['/star-wars/',`${navItems[0].route}/:heroId`].map(p=>
                 <Route key={p} path={p} element={<Home/>}></Route>
             )}
-            {[`/star-wars/${navItems[1].route}`, `/star-wars/${navItems[1].route}`].map(p =>
+            {[`/star-wars/${navItems[1].route}`, `${navItems[1].route}`].map(p =>
                 <Route key={p} path={p} element={<AboutMe/>}></Route>
             )}
-            <Route path={`/star-wars/${navItems[2].route}/:heroId`} element={<StarWars/>}></Route>
-            <Route path={`/star-wars/${navItems[3].route}/:heroId`} element={<Contact/>}></Route>
+            <Route path={`${navItems[2].route}/:heroId`} element={<StarWars/>}></Route>
+            <Route path={`${navItems[3].route}/:heroId`} element={<Contact/>}></Route>
             <Route path={'*'} element={<ErrorPage/>}/>
         </Routes>
     )
