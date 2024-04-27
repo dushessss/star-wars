@@ -1,46 +1,42 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {navItems, period} from "../utils/constants.jsx";
 import "../css/aboutMe.css";
-import {useNavigate, useParams} from "react-router-dom";
 import {characters} from "../utils/characters.jsx";
-import {UserContext} from "../utils/useContext.jsx";
 import {withHeroId} from "../hoc/withHeroId.jsx";
+import {UserContext} from "../utils/useContext.jsx";
 
 const AboutMe = () => {
     const [hero, setHero] = useState();
-    const navigate = useNavigate();
-    const {heroId} = useParams();
-    const {setHero: changeMainHero} = useContext(UserContext);
+    const {hero: heroId} = useContext(UserContext);
 
     useEffect(() => {
-            const hero = JSON.parse(localStorage.getItem(heroId));
-            if (hero && ((Date.now() - hero.time) < period)) {
-                setHero(hero.payload);
-            } else {
-                fetch(characters[heroId].url)
-                    .then(response => response.json())
-                    .then(data => {
-                        const hero = {
-                            "id": data.id,
-                            "name": data.name,
-                            "height": data.height,
-                            "mass": data.mass,
-                            "hair_color": data.hair_color,
-                            "skin_color": data.skin_color,
-                            "eye_color": data.eye_color,
-                            "birth_year": data.birth_year,
-                            "gender": data.gender
-                        };
-                        setHero(hero)
-                        const info = {
-                            payload: hero,
-                            time: Date.now()
-                        }
-                        localStorage.setItem(heroId, JSON.stringify(info));
-                    });
-            }
-        return () => console.log('AboutMe unmounted');
-    }, [])
+        const hero = JSON.parse(localStorage.getItem(heroId));
+        if (hero && ((Date.now() - hero.time) < period)) {
+            setHero(hero.payload);
+        } else {
+            fetch(characters[heroId].url)
+                .then(response => response.json())
+                .then(data => {
+                    const hero = {
+                        "id": data.id,
+                        "name": data.name,
+                        "height": data.height,
+                        "mass": data.mass,
+                        "hair_color": data.hair_color,
+                        "skin_color": data.skin_color,
+                        "eye_color": data.eye_color,
+                        "birth_year": data.birth_year,
+                        "gender": data.gender
+                    };
+                    setHero(hero);
+                    const info = {
+                        payload: hero,
+                        time: Date.now()
+                    }
+                    localStorage.setItem(heroId, JSON.stringify(info));
+                });
+        }
+    },[heroId])
 
 
     return (

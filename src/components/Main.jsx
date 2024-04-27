@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {navItems} from "../utils/constants.jsx";
 import AboutMe from "./AboutMe.jsx";
 import StarWars from "./StarWars.jsx";
@@ -13,7 +13,7 @@ const Main = () => {
             {['/star-wars/',`${navItems[0].route}/:heroId`].map(p=>
                 <Route key={p} path={p} element={<Home/>}></Route>
             )}
-            {[`/star-wars/${navItems[1].route}`, `${navItems[1].route}`].map(p =>
+            {[navItems[1].route, `${navItems[1].route}/:heroId`].map(p =>
                 <Route key={p} path={p} element={<AboutMe/>}></Route>
             )}
             <Route path={`${navItems[2].route}/:heroId`} element={<StarWars/>}></Route>
